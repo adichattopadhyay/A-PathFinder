@@ -11,10 +11,8 @@ import tiles.Tile;
 import java.awt.Graphics2D;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.Arrays;
 public class Frame extends JFrame{
-	
-	
-	
 	/**
 	 * 
 	 */
@@ -33,9 +31,13 @@ public class Frame extends JFrame{
 	
 	private void setUpGame(int sizeX,int sizeY) {
 		getContentPane().setLayout(new GridLayout(sizeY/50,sizeX/50));
+		int tileNum= 0;
 		for(int i = 0; i<(sizeX*sizeY)/(50*50); i++) {
 			getContentPane().add(new Tile());
+			tileNum++;
 		}
+		int[][] tileArray = new int[(int) Math.sqrt(tileNum)][(int) Math.sqrt(tileNum)];
+		System.out.println(Arrays.deepToString(tileArray));
 	}
 	
 	public static void main(String[] args) {
