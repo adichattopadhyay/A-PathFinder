@@ -41,6 +41,10 @@ public class Frame extends JFrame implements MouseListener {
 		for (int i = 0; i < sizeX / 50; i++) {
 			for (int j = 0; j < sizeY / 50; j++) {
 				getContentPane().add(new Tile(i * 48 + 17, j * 48 + 6, Color.white));
+				int iChange = i*48+17;
+				int jChange = j*48+6;
+				System.out.println("I: " +iChange);
+				System.out.println("J: " +jChange);
 				tileNum++;
 				
 			}
@@ -58,7 +62,7 @@ public class Frame extends JFrame implements MouseListener {
 		g.setColor(c);
 		g.fillRect(x, y, width, height);
 	}
-	
+	//Work on placement
 	public void mouseClicked(MouseEvent arg0) {
 		int mouseX = (int) arg0.getPoint().getX();
 		int mouseY = (int) arg0.getPoint().getY();
@@ -67,10 +71,9 @@ public class Frame extends JFrame implements MouseListener {
 		System.out.println(nearestX);
 		System.out.println(nearestY);
 		if(clicker == 0) {
-			new Graphics();
+			Graphics g = getGraphics();
 			paintComponent(g, nearestX, nearestY, 50, 50, Color.RED);
-			clicker = 1;
-			repaint();
+			clicker = 0;
 			System.out.println("Placing start.");
 		}
 	}
